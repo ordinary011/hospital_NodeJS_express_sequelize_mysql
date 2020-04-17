@@ -105,12 +105,12 @@ INSERT INTO units(unit) VALUE ('Gastroenterology');
 INSERT INTO units(unit) VALUE ('General surgery');
 INSERT INTO units(unit) VALUE ('Neurology');
 
-INSERT INTO patients(name, lastName, email, password, gender) VALUE ('Stephan', 'Kirimovich', 'steph@gmail.com', '1', 'male')
-INSERT INTO patients(name, lastName, email, password, gender) VALUE ('Oleg', 'Price', 'goga@gmail.com', '12345', 'male')
-INSERT INTO patients(name, lastName, email, password, gender) VALUE ('Fibi', 'Modius', 'fibs@gmail.com', '12345', 'female')
-INSERT INTO patients(name, lastName, email, password, gender) VALUE ('Dorian', 'Gray', 'dorik@gmail.com', '12345', 'male')
-INSERT INTO patients(name, lastName, email, password, gender) VALUE ('Mary', 'Jordan', 'Mary@gmail.com', '12345', 'female')
-INSERT INTO patients(name, lastName, email, password, gender) VALUE ('Dima', 'Kombi', 'dimasik@mail.ru', '1', 'male')
+INSERT INTO patients(name, lastName, email, password, gender) VALUE ('Stephan', 'Kirimovich', 'steph@gmail.com', '1', 'male');
+INSERT INTO patients(name, lastName, email, password, gender) VALUE ('Oleg', 'Price', 'goga@gmail.com', '12345', 'male');
+INSERT INTO patients(name, lastName, email, password, gender) VALUE ('Fibi', 'Modius', 'fibs@gmail.com', '12345', 'female');
+INSERT INTO patients(name, lastName, email, password, gender) VALUE ('Dorian', 'Gray', 'dorik@gmail.com', '12345', 'male');
+INSERT INTO patients(name, lastName, email, password, gender) VALUE ('Mary', 'Jordan', 'Mary@gmail.com', '12345', 'female');
+INSERT INTO patients(name, lastName, email, password, gender) VALUE ('Dima', 'Kombi', 'dimasik@mail.ru', '1', 'male');
 
 INSERT INTO doctors(name, lastName, period_of_service, occupation, phone_number, email, floor, office, unit_id) VALUE ('King', 'Robert', 5, 'Cardiologist', 066552411, 'alex@gmail.com', 4, 512, 1);
 INSERT INTO doctors(name, lastName, period_of_service, occupation, phone_number, email, floor, office, unit_id) VALUE ('King', 'Robert', 5, 'Cardiologist', 066552411, 'alex22@gmail.com', 4, 412, 1);

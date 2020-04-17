@@ -11,8 +11,6 @@ const patientAddComment = require('../controllers/patient/patientAddComment');
 const patientDelComment = require('../controllers/patient/patientDelComment');
 const patientUpdateComment = require('../controllers/patient/patientUpdateComment');
 
-
-
 router.post('/', patientSignUp);
 
 router.post('/logIn', patientLogIn);
