@@ -30,6 +30,10 @@ app.use('*', (req, res) => {
 	res.status(404).json('The page does not exist');
 });
 
+app.get("/", (req, res, next) => {
+    res.json("works");
+})
+
 app.listen(3000, () => {
 	console.log('Listening on port 3000');
 });
