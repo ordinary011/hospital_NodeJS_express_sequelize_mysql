@@ -1,3 +1,48 @@
+URL for project deployed on AWS: http://ec2-3-120-34-253.eu-central-1.compute.amazonaws.com:4200
+
+====================HOSPITAL-DOCS==================
+
+UNIT =====================================================
+GET /unit
+this method is used for receiving all of the units in the hospital. Later they are displayed in the main page.
+
+GET /unit/:id
+this method is used for displaying all the doctors in the current unit. req.params.id is actually id of the unit.
+
+AUTH ===================================================
+POST /patient/logIn BODY - {email:STRING, password:STRING}
+this method is used for loggin in the patient
+
+GET /patient/verify HEADERS: Authorization: TOKEN
+this method is used for verifying the patient
+
+DOCTOR ========================================================
+GET /doctor/:id
+this method is used for receiving the details about the doctor. req.params.id corresponds to the doctor id in the table
+
+GET /doctor/?name=
+this method is used when patients need to search for a doctor by name. req.query corresponds to the doctor name
+
+PATIENT ========================================================
+POST /patient BODY - {name:STRING, lastName:STRING, email:STRING, password:STRING, passwordConfirm:STRING, gender:STRING}
+this method is used for signing up the patient
+
+POST /patient/appreciate BODY - {doctor_id: NUMBER, mark: NUMBER}. HEADERS: Authorization: TOKEN
+this method is used for appreciating the doctor. mark corresponds to the evaluation degree of the patient.
+
+POST /patient/comment BODY - {doctor_id: NUMBER, comment: STRING}. HEADERS: Authorization: TOKEN
+This method is used for posting a new comment for the doctor.
+
+DELETE /patient/comment/:comment_id/:patient_id HEADERS: Authorization: TOKEN
+this method is used for deleting the comment of the patient
+
+PUT /patient/comment BODY - {comment_id:NUMBER, patient_id:NUMBER, comment:STRING}. HEADERS: Authorization: TOKEN
+this method is used for updating the patient's comment
+
+
+==================================================================
+====================== MIGRATIONS ======================
+==================================================================
 create schema if not exists hospital;
 
 use hospital;
@@ -167,46 +212,3 @@ INSERT INTO days_to_doctor(doctor_id, day_id) VALUE (9, 2);
 INSERT INTO days_to_doctor(doctor_id, day_id) VALUE (9, 4);
 INSERT INTO days_to_doctor(doctor_id, day_id) VALUE (10, 4);
 INSERT INTO days_to_doctor(doctor_id, day_id) VALUE (10, 5);
-
-====================HOSPITAL-DOCS==================
-
-UNIT =====================================================
-
-GET /unit
-this method is used for receiving all of the units in the hospital. Later they are displayed in the main page.
-
-GET /unit/:id
-this method is used for displaying all the doctors in the current unit. req.params.id is actually id of the unit.
-
-AUTH ===================================================
-
-POST /patient/logIn BODY - {email:STRING, password:STRING}
-this method is used for loggin in the patient
-
-GET /patient/verify HEADERS: Authorization: TOKEN
-this method is used for verifying the patient
-
-DOCTOR ========================================================
-
-GET /doctor/:id
-this method is used for receiving the details about the doctor. req.params.id corresponds to the doctor id in the table
-
-GET /doctor/?name=
-this method is used when patients need to search for a doctor by name. req.query corresponds to the doctor name
-
-PATIENT ========================================================
-
-POST /patient BODY - {name:STRING, lastName:STRING, email:STRING, password:STRING, passwordConfirm:STRING, gender:STRING}
-this method is used for signing up the patient
-
-POST /patient/appreciate BODY - {doctor_id: NUMBER, mark: NUMBER}. HEADERS: Authorization: TOKEN
-this method is used for appreciating the doctor. mark corresponds to the evaluation degree of the patient.
-
-POST /patient/comment BODY - {doctor_id: NUMBER, comment: STRING}. HEADERS: Authorization: TOKEN
-This method is used for posting a new comment for the doctor.
-
-DELETE /patient/comment/:comment_id/:patient_id HEADERS: Authorization: TOKEN
-this method is used for deleting the comment of the patient
-
-PUT /patient/comment BODY - {comment_id:NUMBER, patient_id:NUMBER, comment:STRING}. HEADERS: Authorization: TOKEN
-this method is used for updating the patient's comment
