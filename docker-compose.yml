@@ -1,0 +1,31 @@
+version: '3.3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql
+    working_dir: /hospital_app
+    command: "npm start"
+  mysql:
+    image: mysql:5.7  
+    container_name: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_HOST: localhost
+      MYSQL_DATABASE: 'hospital'
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: 'root'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3307:3306'
+    expose:
+      # Opens port 3307 on the container
+      - '3307'
+    # Where our data will be persisted
+    volumes:
+      - ./data/hospital:/var/lib/mysql

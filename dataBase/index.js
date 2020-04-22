@@ -7,8 +7,9 @@ module.exports = (() => {
 
     function initConnection() {
         const client = new Sequalize('hospital', 'root', 'root', {
-            host: 'localhost',
-            dialect: 'mysql'
+            host: 'mysql',
+            dialect: 'mysql',
+            port: '3306'
         });
         let models = {};
 
